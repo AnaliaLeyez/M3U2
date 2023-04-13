@@ -1,0 +1,26 @@
+body {
+    background-image: url(../images/hero.jpeg);
+}
+
+.carousel {
+    width: 40vw;
+    margin: 90px auto 40px auto;
+}
+
+.card {
+    min-height: 500px;
+}
+
+.card img{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+.card-body {
+    text-align : center;
+}
+
+.card-footer{
+    display: flex;
+    justify-content: end;
+}

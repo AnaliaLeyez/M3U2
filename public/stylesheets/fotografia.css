@@ -74,7 +74,7 @@ opacity: 0.7;
 
 /* SECCION HERO */
 .hero-principal{
-  background-image: url(../img/hero.jpeg);
+  background-image: url(../images/hero.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -169,22 +169,22 @@ opacity: 0.7;
 
 .bodas{
   grid-area: bodas;
-  background-image: url(../img/bodas.jpg);
+  background-image: url(../images/bodas.jpg);
 }
 
 .quince{
   grid-area: quince;
-  background-image: url(../img/quince.jpg);
+  background-image: url(../images/quince.jpg);
 }
 
 .modelaje{
   grid-area: modelaje;
-  background-image: url(../img/modelaje.jpeg);
+  background-image: url(../images/modelaje.jpeg);
 }
 
 .paisaje{
   grid-area: paisaje;
-  background-image: url(../img/paisaje.jpg);
+  background-image: url(../images/paisaje.jpg);
 }
 
 .filmaciones{
@@ -308,7 +308,7 @@ border-bottom: 2px solid var(--color-navbar);
 
 /* contacto */
 #contacto{
-  background-image: url(../img/backContacto.jpeg);
+  background-image: url(../images/backContacto.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -325,6 +325,13 @@ border-bottom: 2px solid var(--color-navbar);
   color:var(--color-portada);
   color:var(--color-portada);
   text-shadow: 1px 2px black;
+}
+
+.rtaEnvio{
+  background-color: bisque;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
 
 .mapa iframe{

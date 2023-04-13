@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config();
+
 var indexRouter = require('./routes/index');
 var staffRouter = require('./routes/staff'); //busca staff.js
 var bodasRouter = require('./routes/bodas'); //busca staff.js
