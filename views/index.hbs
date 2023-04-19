@@ -317,6 +317,9 @@
           <span class="rtaEnvio">
             {{ message }}
           </span>
+          {{#if message}}
+        <script>alert("{{message}}")</script>
+          {{/if}}
         </form>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-1">

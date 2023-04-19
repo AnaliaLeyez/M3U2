@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/stylesheets/sesion.css" />
+
+<div class="contenedorPpal">
+<div class="tituloSesion">
+    <h1>{{titulo}}</h1>
+</div>
+
+{{#if conocido}}
+<div class="sesionAbierta">
+<p>Hola {{nombre}}
+    <a href="/salir">Salir</a>
+</p>
+</div>
+{{/if}}
+
+{{#unless conocido}}
+<div class="sesionCerrada">
+<p>Por favor, inicie sesión</p>
+<form action="/ingresar" method="post">
+    <input type="text" name="nombre">
+    <button>Ingresar</button>
+</form>
+</div>
+{{/unless}}
+
+</div>

@@ -3,12 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session= require('express-session')
 
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var staffRouter = require('./routes/staff'); //busca staff.js
-var bodasRouter = require('./routes/bodas'); //busca staff.js
+var bodasRouter = require('./routes/bodas');
+var sesionRouter = require('./routes/sesion');
 var app = express();
 
 // view engine setup
@@ -21,9 +23,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: 'paxmaerzitreoqwn857v',
+  resave: false,
+  saveUninitialized: true
+}));
+
 app.use('/', indexRouter);
 app.use('/staff', staffRouter);  //controlador o manejador de ruta
 app.use('/bodas', bodasRouter);
+app.use('/sesion', sesionRouter);
 
 app.get('/staff', function (req,res){
   res.render('staff')
@@ -32,6 +41,28 @@ app.get('/staff', function (req,res){
 app.get('/bodas', function (req,res){
   res.render('bodas')
 })
+
+app.get('/sesion', function(req, res) {
+  var conocido= Boolean(req.session.nombre);
+
+  res.render('sesion', {
+    titulo: 'Inicio de sesión',
+    conocido: conocido,
+    nombre: req.session.nombre
+  });
+});
+
+app.post('/ingresar', function(req, res){
+  if (req.body.nombre) {
+    req.session.nombre= req.body.nombre
+  };
+  res.redirect('/sesion');
+});
+
+app.get('/salir', function(req, res){
+  req.session.destroy();
+  res.redirect('/sesion');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
