@@ -26,15 +26,12 @@ router.post('/', async(req, res, next) => {
 
   var info= await transport.sendMail(obj);
 
-  res.render('index', {
-    message: 'Mensaje enviado correctamente'
+  res.redirect('/?message=ok#contacto');
   });
-
-});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Analía Leyez fotografía' });
+  res.render('index', { title: 'Analía Leyez fotografía', message: req.query.message === 'ok' ? 'Mensaje enviado correctamente' : '' });
 });
 
 module.exports = router;
