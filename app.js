@@ -8,6 +8,7 @@ var session= require('express-session');
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 var staffRouter = require('./routes/staff'); //busca staff.js
 var bodasRouter = require('./routes/bodas');
 var sesionRouter = require('./routes/sesion');
@@ -30,6 +31,7 @@ app.use(session({
 }));
 
 app.use('/', indexRouter);
+app.use('/users', usersRouter);
 app.use('/staff', staffRouter);  //controlador o manejador de ruta
 app.use('/bodas', bodasRouter);
 app.use('/sesion', sesionRouter);
