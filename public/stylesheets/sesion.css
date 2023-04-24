@@ -1,20 +1,24 @@
-.contenedorPpal{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    height: 95vh;
-    padding-top: 20vh;
-}
-
-.tituloSesion{
-    color:black;
+body{
     background-color: #ccc;
 }
 
-.sesionAbierta{
-    color:blueviolet;
+.contenedorPpal{
+    padding-top: 15vh;
 }
 
-.sesionCerrada{
-    color:aquamarine;
+.tituloSesion,
+.sesionAbierta,
+.sesionCerrada
+{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    color:black;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
