@@ -34,7 +34,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/staff', staffRouter);  //controlador o manejador de ruta
 app.use('/bodas', bodasRouter);
-app.use('/sesion', sesionRouter);
 
 app.get('/staff', function (req,res){
   res.render('staff')
