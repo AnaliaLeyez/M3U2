@@ -11,7 +11,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var staffRouter = require('./routes/staff'); //busca staff.js
 var bodasRouter = require('./routes/bodas');
+var quinceRouter = require('./routes/quince');
 var sesionRouter = require('./routes/sesion');
+var loginRouter = require('./routes/admin/login');
+var adminRouter= require('./routes/admin/novedades');
+
 var app = express();
 
 // view engine setup
@@ -30,10 +34,28 @@ app.use(session({
   saveUninitialized: true
 }));
 
+secured =async(req,res,next)=> {
+  try{
+    // console.log(req.session.id_usuario);
+    if(req.session.id_usuario){
+      next();
+    } else{
+      res.redirect('admin/login');
+    }
+  } catch(error){
+    console.log(error);
+  }
+}
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/staff', staffRouter);  //controlador o manejador de ruta
 app.use('/bodas', bodasRouter);
+app.use('/quince', quinceRouter);
+app.use('/sesion', sesionRouter);
+app.use('/admin/login', loginRouter);
+// app.use('/admin/novedades', adminRouter);
+app.use('/admin/novedades', secured, adminRouter);
 
 app.get('/staff', function (req,res){
   res.render('staff')
@@ -41,6 +63,10 @@ app.get('/staff', function (req,res){
 
 app.get('/bodas', function (req,res){
   res.render('bodas')
+})
+
+app.get('/quince', function (req,res){
+  res.render('quince')
 })
 
 app.get('/sesion', function(req, res) {

@@ -5,6 +5,8 @@ body {
 .carousel {
     width: 40vw;
     margin: 90px auto 40px auto;
+    min-height: calc(100vh - 30px);
+    margin-bottom: 30px;
 }
 
 .card {
