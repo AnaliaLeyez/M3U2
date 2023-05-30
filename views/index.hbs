@@ -30,6 +30,41 @@
 </section><!--Fin Seccion portfolio -->
 
 <section>
+  <!-- seccion novedades -->
+    <div id="novedades" class="scroll-section col-md-5 offset-sm-1 offset-md-2">
+      <h2>Novedades</h2>
+      <ul class="lista-novedades">
+        {{#each novedades}}
+        <li class="lista-novedades">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#novedadesModal{{id}}">
+            <img src="/images/backContacto.jpeg">{{titulo}}</a>
+        </li>
+        {{/each}}
+      </ul>
+    </div><!-- fin de novedades -->
+</section>
+
+  <!-- novedades modal -->
+  {{#each novedades}}
+  <div class="modal fade" id="novedadesModal{{id}}" tabindex="-1" aria-labelledby="novedadesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="novedadesModalLabel">{{titulo}}</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3>{{subtitulo}}</h3>
+          <p>{{cuerpo}}</p>
+        </div>
+      </div>
+    </div>
+  </div> 
+  {{/each}}
+  <!-- Fin de Modal novedades-->
+
+
+<section>
   <!--preguntas frecuentes, carrusel de testimonios y aside-->
   <div class="row mx-0">
     <!-- Preguntas frecuentes -->
@@ -55,14 +90,29 @@
             aria-labelledby="flush-headingOne"
             data-bs-parent="#acordionPreguntasFrecuentes"
           >
-            <div class="accordion-body">Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Nulla ex aperiam, non quibusdam sint aspernatur
-              amet mollitia dolorum magnam voluptatum voluptates necessitatibus
-              eius fugit consequuntur dicta quisquam magni sed sequi? Lorem,
-              ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-              excepturi ea saepe veniam, quasi corporis praesentium molestiae,
-              quas neque totam possimus quaerat. Ipsa, porro voluptatem
-              dignissimos dolore pariatur culpa quas.</div>
+            <div class="accordion-body">En nuestro equipo de fotografía
+              profesional, entendemos lo importante que es para nuestros
+              clientes recibir su trabajo en el menor tiempo posible. Nos
+              enorgullece ofrecer un servicio eficiente y ágil, sin comprometer
+              la calidad de nuestras imágenes.<br />
+              Nuestro tiempo de entrega varía según el tipo de proyecto y la
+              cantidad de fotografías requeridas. Para sesiones fotográficas
+              individuales, como retratos o sesiones personales, nuestro plazo
+              de entrega promedio es de aproximadamente una semana. Esto nos
+              permite realizar una cuidadosa selección y edición de las mejores
+              imágenes, garantizando resultados excepcionales.<br />
+              En el caso de proyectos más grandes, como eventos corporativos,
+              bodas o sesiones de moda, el tiempo de entrega puede extenderse
+              ligeramente debido al volumen de trabajo involucrado. Sin embargo,
+              nos comprometemos a entregar el trabajo finalizado en un plazo
+              máximo de dos semanas, manteniendo siempre una comunicación
+              abierta y transparente con nuestros clientes para informarles
+              sobre el progreso del proceso.<br />
+              Entendemos que la puntualidad es crucial, y nos esforzamos por
+              cumplir con los plazos acordados. Nuestro equipo de expertos
+              fotógrafos y editores trabaja diligentemente para capturar y
+              perfeccionar cada imagen, asegurando que cada proyecto se entregue
+              con el más alto nivel de calidad y satisfacción.</div>
           </div>
         </div>
         <div class="accordion-item">
@@ -84,11 +134,16 @@
             aria-labelledby="flush-headingTwo"
             data-bs-parent="#acordionPreguntasFrecuentes"
           >
-            <div class="accordion-body">Lorem ipsum dolor, sit amet consectetur
-              adipisicing elit. Sint illo similique libero ipsum accusamus
-              asperiores ducimus, exercitationem voluptatibus totam ab dolorem
-              architecto debitis facere. Cupiditate minima neque adipisci
-              blanditiis dicta?</div>
+            <div class="accordion-body">Te recomendamos reservar con la mayor
+              anticipación posible para asegurar disponibilidad en nuestra
+              agenda. Dado que nuestro equipo de fotografía profesional se
+              encuentra altamente solicitado, es aconsejable reservar al menos
+              con dos semanas de antelación. Sin embargo, si necesitas una
+              sesión fotográfica en una fecha específica o para eventos
+              especiales, te sugerimos reservar con aún más tiempo para
+              garantizar nuestra disponibilidad y poder brindarte el mejor
+              servicio posible. ¡Esperamos capturar momentos inolvidables
+              contigo!</div>
           </div>
         </div>
         <div class="accordion-item">
@@ -110,14 +165,15 @@
             aria-labelledby="flush-headingThree"
             data-bs-parent="#acordionPreguntasFrecuentes"
           >
-            <div class="accordion-body">Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit. Possimus esse iure blanditiis est ducimus in
-              voluptatum adipisci quaerat officiis tempore neque ad nisi
-              excepturi voluptatibus, fugit inventore porro iste deleniti. Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Dolore
-              distinctio doloribus voluptas consectetur inventore ullam totam,
-              dolorum velit sint aperiam. Nulla tempore deleniti fuga ullam
-              architecto quidem at provident similique.</div>
+            <div class="accordion-body">El plan de pago de nuestro servicio es
+              flexible y se adapta a las necesidades de nuestros clientes.
+              Ofrecemos diferentes opciones de pago para mayor comodidad. Puedes
+              pagar el total del servicio de fotografía de manera anticipada o
+              dividirlo en pagos parciales. También aceptamos diferentes métodos
+              de pago, como tarjetas de crédito, transferencias bancarias o
+              pagos en efectivo. Nuestro objetivo es brindarte opciones
+              convenientes y accesibles para que puedas disfrutar de nuestros
+              servicios de fotografía profesional sin preocupaciones.</div>
           </div>
         </div>
       </div>
@@ -238,12 +294,12 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modalTendencias">
             Tendencias
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modalNotas">
             Notas
           </a>
         </li>
@@ -315,10 +371,10 @@
             <button type="submit" class="btn btn-primary">Enviar</button>
           </div>
           <span class="rtaEnvio">
-            {{ message }}
+            {{message}}
           </span>
           {{#if message}}
-        <script>alert("{{message}}")</script>
+            <script>alert("{{message}}")</script>
           {{/if}}
         </form>
       </div>
@@ -423,32 +479,31 @@
         ></button>
       </div>
       <div class="modal-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ab
-        laudantium nemo dolores quasi omnis explicabo aliquam, nihil mollitia,
-        debitis quod suscipit odio. Eaque repellat laboriosam magnam est minima!
-        A. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla omnis
-        unde iusto at est consectetur consequatur perferendis facere debitis
-        impedit, natus eveniet reprehenderit, consequuntur laborum sunt
-        mollitia? Magni, nostrum odit! Lorem ipsum, dolor sit amet consectetur
-        adipisicing elit. Reprehenderit impedit, quod qui, libero mollitia
-        tempora, voluptatem provident excepturi soluta pariatur doloribus atque
-        aperiam perferendis ullam exercitationem laborum amet. Doloribus,
-        doloremque. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-        Aliquam quis dolorum repellendus laudantium quibusdam illum minus
-        explicabo molestiae possimus natus, ex dolore laboriosam quo quae sunt
-        nam quia autem aut. Lorem ipsum dolor sit amet, consectetur adipisicing
-        elit. Temporibus neque, sequi nostrum, ipsa dolor quod, suscipit
-        quisquam veniam nam libero exercitationem quibusdam! Voluptatum omnis
-        sed modi pariatur vitae iusto illo. Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Odio molestiae iste ducimus magnam
-        possimus incidunt amet beatae fuga facere! Excepturi, quibusdam. Ipsam
-        officia repellat pariatur rerum quae ad, dolore explicabo. Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Quis earum odit numquam
-        eaque nulla minus soluta aliquam fuga quibusdam inventore ad accusantium
-        quas nostrum vitae quae, eius dolorem, quasi quaerat! Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Fugit asperiores eaque sit saepe
-        quisquam praesentium quis. Corrupti rem ipsam, dolorum aspernatur
-        commodi eius, praesentium similique sed consectetur veritatis hic animi.
+        En nuestro equipo de fotografía profesional, siempre buscamos innovar y
+        sorprenderte. Te adelantamos algunas cosas emocionantes que están por
+        venir:
+        <br />
+        <ul>
+          <li>
+            <b>1. </b>Sesiones fotográficas temáticas: Pronto ofreceremos
+            experiencias fotográficas únicas con estilos temáticos, desde lo
+            vintage hasta lo futurista.<br />
+          </li>
+          <li>
+            <b>2. </b>Colaboraciones con artistas locales: Estamos emocionados
+            por fusionar la fotografía con otras formas de arte en
+            colaboraciones especiales.<br />
+          </li>
+          <li>
+            <b>3. </b>Fotografía aérea: Próximamente, capturaremos imágenes
+            desde nuevas perspectivas con servicios de fotografía aérea
+            utilizando drones.<br />
+          </li>
+        </ul>
+        Sigue nuestras redes sociales y visita nuestra página web para conocer
+        más detalles sobre estos proyectos emocionantes. Descubre nuevas y
+        sorprendentes formas de ver el mundo a través de nuestra fotografía
+        profesional.
       </div>
     </div>
   </div>
@@ -494,3 +549,152 @@
     </div>
   </div>
 </div><!-- FIN MODAL NuevosRubros -->
+
+<!-- MODAL Tendencias -->
+<div
+  class="modal fade"
+  id="modalTendencias"
+  tabindex="-1"
+  aria-labelledby="modalLabelTendencias"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" style="width:100%;">
+      <div class="modal-body" style="width:100%;">
+        <h1>Explorando las Tendencias en Fotografía:</h1>
+        <h2>Capturando el Espíritu del Momento</h2>
+        <p>
+
+          La fotografía es un arte en constante evolución, y cada año nos
+          sorprende con nuevas tendencias y enfoques que capturan la esencia del
+          momento de una manera única. En este artículo, te presentamos algunas
+          de las tendencias más destacadas en el mundo de la fotografía actual:<br
+          />
+          <strong><u>Fotografía Lifestyle: </u></strong>En lugar de poses
+          rígidas y escenarios preparados, la fotografía lifestyle se enfoca en
+          capturar momentos espontáneos y auténticos. Se trata de crear imágenes
+          que reflejen la vida cotidiana y la personalidad de las personas,
+          transmitiendo emociones genuinas y verdaderas historias.<br />
+          <strong><u>Fotografía Minimalista: </u></strong>Menos es más en esta
+          tendencia que se centra en la simplicidad y la composición limpia. La
+          fotografía minimalista utiliza espacios vacíos, líneas limpias y
+          colores suaves para crear imágenes impactantes y elegantes. La
+          atención se centra en los detalles más simples, resaltando la belleza
+          en la simplicidad.<br />
+          <strong><u>Fotografía de Drones: </u></strong>El uso de drones ha
+          revolucionado la forma en que capturamos imágenes. La fotografía aérea
+          ofrece una perspectiva única, mostrando paisajes impresionantes,
+          vistas panorámicas y escenas arquitectónicas desde alturas asombrosas.
+          La creatividad se desata al explorar nuevos ángulos y composiciones
+          desde el cielo.<br />
+          <strong><u>Fotografía de Naturaleza y Paisajes: </u></strong>La
+          conexión con la naturaleza y la búsqueda de la belleza en los paisajes
+          continúan siendo una tendencia fuerte. La fotografía de naturaleza y
+          paisajes busca capturar la grandeza de la naturaleza, ya sea a través
+          de impresionantes paisajes montañosos, costas infinitas o fenómenos
+          naturales asombrosos.<br /><br />
+          Estas son solo algunas de las tendencias en fotografía que están
+          dejando huella en la actualidad. Como fotógrafos, nos inspiramos en
+          estas nuevas perspectivas y técnicas para crear imágenes cautivadoras
+          y únicas, que transmitan el espíritu del momento y despierten
+          emociones en quienes las observan.<br />
+
+          ¡Así que atrévete a explorar estas tendencias y deja que tu
+          creatividad se eleve a nuevas alturas! La fotografía está llena de
+          infinitas posibilidades y siempre hay algo emocionante esperando ser
+          capturado a través de tu lente.
+
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div><!-- FIN MODAL Tendencias -->
+
+<!-- MODAL Notas -->
+<div
+  class="modal fade"
+  id="modalNotas"
+  tabindex="-1"
+  aria-labelledby="modalLabelNotas"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" style="width:100%;">
+      <div class="modal-body" style="width:100%;">
+        <ul>
+          <li>
+            *
+            <a href="#">"Descubre la magia en cada detalle: La fotografía macro
+              revela un mundo asombroso en primer plano"</a>
+          </li><br />
+          <li>
+            *
+            <a href="#">"Capturando emociones reales: Fotografía documental que
+              cuenta historias auténticas"</a>
+          </li><br />
+          <li>*
+            <a href="#">"El poder de la luz: Cómo la iluminación creativa
+              transforma tus imágenes en obras de arte"</a>
+          </li><br />
+        </ul>
+
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div><!-- FIN MODAL Notas -->
+
+<!-- MODAL Tips -->
+<div
+  class="modal fade"
+  id="modalTips"
+  tabindex="-1"
+  aria-labelledby="modalLabelTips"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" style="width:100%;">
+      <div class="modal-body" style="width:100%;">
+        <ol>
+          <li>
+            <b>1.</b>
+            Planifica con anticipación: Establece fecha, lugar y estilo de la
+            sesión de fotos con anticipación.
+          </li><br />
+          <li>
+            <b>2.</b>
+            Sé tú mismo/a: Relájate, diviértete y muéstrate auténtico/a frente a
+            la cámara.
+          </li><br />
+          <li>
+            <b>3.</b>
+            Confía en tu fotógrafo: Permítele guiar la sesión y capturar tu
+            mejor versión
+          </li><br /><br />
+        </ol>
+        Estos tres tips te ayudarán a tener una sesión de fotos exitosa,
+        destacando tu personalidad y creando recuerdos memorables.
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div><!-- FIN MODAL Tips -->
