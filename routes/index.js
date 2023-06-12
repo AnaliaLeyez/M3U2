@@ -2,14 +2,7 @@ var express = require('express');
 var router = express.Router();
 var nodemailer= require('nodemailer');
 var novedadesModel = require('../models/novedadesModel');
-
-/* GET HOME page. */
-router.get('/', async function(req, res, next) {
-  var novedades = await novedadesModel.getNovedades()
-  res.render('index', { 
-    novedades
-   });
-});
+var cloudinary = require('cloudinary').v2;
 
 router.post('/', async(req, res, next) => {
   var nombre=req.body.nombre;
@@ -39,7 +32,34 @@ router.post('/', async(req, res, next) => {
   });
 
 
-/* GET home page. */
+/* GET home page: */
+router.get('/', async function(req, res, next) {
+  var novedades = await novedadesModel.getNovedades()
+  novedades= novedades.splice(-3); //selecciona los últimos 3 elementos del array
+  //novedades= novedades.splice(0,3); //selecciona los primeros 3 elementos del array
+  novedades= novedades.map(novedad=>{
+    if(novedad.img_id){
+        const imagen= cloudinary.url(novedad.img_id, {
+            width: 500,
+            crop: 'fill'
+        });
+        return{
+            ...novedad,
+            imagen
+        } 
+    } else {
+            return{
+                ...novedad,
+                imagen:'/images/backContacto.jpeg'
+            }
+        }
+    });
+
+  res.render('index', { 
+    novedades
+   });
+});
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Analía Leyez fotografía', message: req.query.message === 'ok' ? 'Mensaje enviado correctamente' : '' });
 });

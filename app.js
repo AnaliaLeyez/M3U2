@@ -6,6 +6,7 @@ var logger = require('morgan');
 var session= require('express-session');
 
 require('dotenv').config();
+var fileUpload= require('express-fileupload');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,7 +14,6 @@ var staffRouter = require('./routes/staff'); //busca staff.js
 var bodasRouter = require('./routes/bodas');
 var quinceRouter = require('./routes/quince');
 var trabajaConNosotrosRouter = require('./routes/trabajaConNosotros');
-// var sesionRouter = require('./routes/sesion');
 var loginRouter = require('./routes/admin/login');
 var adminRouter= require('./routes/admin/novedades');
 
@@ -48,13 +48,17 @@ secured =async(req,res,next)=> {
   }
 }
 
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir:'/tmp/'
+}));
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/staff', staffRouter);  //controlador o manejador de ruta
 app.use('/bodas', bodasRouter);
 app.use('/quince', quinceRouter);
 app.use('/trabajaConNosotros', trabajaConNosotrosRouter);
-// app.use('/sesion', sesionRouter);
 app.use('/admin/login', loginRouter);
 app.use('/admin/novedades', secured, adminRouter);
 
@@ -73,28 +77,6 @@ app.get('/quince', function (req,res){
 app.get('/trabajaConNosotros', function (req,res){
   res.render('trabajaConNosotros')
 })
-
-// app.get('/sesion', function(req, res) {
-//   var conocido= Boolean(req.session.nombre);
-
-//   res.render('sesion', {
-//     titulo: 'Inicio de sesión',
-//     conocido: conocido,
-//     nombre: req.session.nombre
-//   });
-// });
-
-// app.post('/ingresar', function(req, res){
-//   if (req.body.nombre) {
-//     req.session.nombre= req.body.nombre
-//   };
-//   res.redirect('/sesion');
-// });
-
-// app.get('/salir', function(req, res){
-//   req.session.destroy();
-//   res.redirect('/sesion');
-// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

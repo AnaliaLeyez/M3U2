@@ -32,12 +32,12 @@
 <section>
   <!-- seccion novedades -->
     <div id="novedades" class="scroll-section col-md-5 offset-sm-1 offset-md-2">
-      <h2>Novedades</h2>
+      <h2>Últimos trabajos</h2>
       <ul class="lista-novedades">
         {{#each novedades}}
         <li class="lista-novedades">
           <a href="#" data-bs-toggle="modal" data-bs-target="#novedadesModal{{id}}">
-            <img src="/images/backContacto.jpeg">{{titulo}}</a>
+            <img src={{imagen}}>{{titulo}}</a>
         </li>
         {{/each}}
       </ul>
@@ -54,6 +54,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <img src={{imagen}} width="400">
           <h3>{{subtitulo}}</h3>
           <p>{{cuerpo}}</p>
         </div>
