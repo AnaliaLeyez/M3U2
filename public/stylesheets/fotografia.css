@@ -233,7 +233,9 @@ opacity: 0.7;
 
 .lista-novedades li a img{
   width: 10vw;
-  max-width: 200px;
+  max-width: 150px;
+  max-height: 100px;
+  object-fit: cover;
   margin: 10px;
   border-radius: 30% 10%;
   filter: grayscale(35%);
@@ -256,6 +258,20 @@ opacity: 0.7;
 
 .lista-novedades li a:hover img{
   filter: none;
+}
+
+.image-container {
+  max-width: 100%;
+}
+
+.image-container img {
+  width: 500;
+  max-width: 100%;
+  margin: 10px;
+}
+
+.carousel-novedades{
+  height: 450;
 }
 /* fin novedades */
 

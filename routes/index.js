@@ -38,15 +38,38 @@ router.get('/', async function(req, res, next) {
   novedades= novedades.splice(-3); //selecciona los últimos 3 elementos del array
   //novedades= novedades.splice(0,3); //selecciona los primeros 3 elementos del array
   novedades= novedades.map(novedad=>{
-    if(novedad.img_id){
-        const imagen= cloudinary.url(novedad.img_id, {
-            width: 500,
-            crop: 'fill'
+    if(novedad.img_principal_id){
+        const imagen= cloudinary.url(novedad.img_principal_id, {
+            crop: 'fill',
         });
-        return{
-            ...novedad,
-            imagen
-        } 
+
+      let imagen1, imagen2, imagen3;
+
+      if (novedad.img_1_id) {
+        imagen1 = cloudinary.url(novedad.img_1_id, {
+          crop: 'fill'
+        });
+      }
+
+      if (novedad.img_2_id) {
+        imagen2 = cloudinary.url(novedad.img_2_id, {
+          crop: 'fill'
+        });
+      }
+
+      if (novedad.img_3_id) {
+        imagen3 = cloudinary.url(novedad.img_3_id, {
+          crop: 'fill'
+        });
+      }
+
+      return {
+        ...novedad,
+        imagen,
+        imagen1: imagen1 || null,
+        imagen2: imagen2 || null,
+        imagen3: imagen3 || null
+      };
     } else {
             return{
                 ...novedad,
@@ -54,6 +77,7 @@ router.get('/', async function(req, res, next) {
             }
         }
     });
+
 
   res.render('index', { 
     novedades

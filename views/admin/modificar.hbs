@@ -1,37 +1,148 @@
 <div class="container" style="margin:150px auto">
-    <div class="row">
-        <div class="col-6 offset-3">
-            <h4>Modificar la novedad</h4>
-            <form action="/admin/novedades/modificar" method="post" enctype="multipart/form-data">
-                <input type="hidden" value="{{novedad.id}}" name="id">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Titulo" name="titulo" value="{{novedad.titulo}}">
-                </div>
-                <div class="form-group">
-                    <p>
-                        <label>Imagen
-                            <input type="file" class="form-control" name="imagen" id="imagen">
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="checkbox" name="img_delete" id="imagen_delete" value="1">
-                            Eliminar imagen actual
-                        </label>
-                        <input type="hidden" name="img_original" value="{{novedad.img_id}}">
-                    </p>
-                </div>
-                <div class="form-group">
-                    <textarea type="text" class="form-control" placeholder="Subtitulo" rows="6" name="subtitulo">{{novedad.subtitulo}}</textarea>
-                </div>
-                    <div class="form-group">
-                    <textarea type="text" class="form-control" placeholder="Cuerpo" rows="9" name="cuerpo">{{novedad.cuerpo}}</textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Guardar modificación</button>
-            </form>
-            {{#if error}}
-            <p class="mensajeError">{{message}}</p>
-            {{/if}}
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h4>Modificar la novedad</h4>
+      <form
+        action="/admin/novedades/modificar"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input type="hidden" value="{{novedad.id}}" name="id" />
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Titulo"
+            name="titulo"
+            value="{{novedad.titulo}}"
+          />
         </div>
+        <div class="form-group">
+          <p>
+            <label>Imagen Principal
+              <input
+                type="file"
+                class="form-control"
+                name="imagen_principal"
+                id="imagen_principal"
+              />
+            </label>
+          </p>
+          <p>
+            <label>
+              <input
+                type="checkbox"
+                name="img_principal_delete"
+                id="imagen_principal_delete"
+                value="1"
+              />
+              Eliminar imagen principal actual
+            </label>
+            <input
+              type="hidden"
+              name="img_principal_original"
+              value="{{novedad.img_principal_id}}"
+            />
+          </p>
+        </div>
+        <div class="form-group">
+          <textarea
+            type="text"
+            class="form-control"
+            placeholder="Subtitulo"
+            rows="6"
+            name="subtitulo"
+          >{{novedad.subtitulo}}</textarea>
+        </div>
+        <div class="form-group">
+          <p>
+            <label>Imagen 1
+              <input
+                type="file"
+                class="form-control"
+                name="imagen_1"
+                id="imagen_1"
+              />
+            </label>
+          </p>
+          <p>
+            <label>
+              <input
+                type="checkbox"
+                name="img_1_delete"
+                id="imagen_1_delete"
+                value="1"
+              />
+              Eliminar imagen 1 actual
+            </label>
+            <input
+              type="hidden"
+              name="img_1_original"
+              value="{{novedad.img_1_id}}"
+            />
+          </p>
+        </div>
+        <div class="form-group">
+          <p>
+            <label>Imagen 2
+              <input
+                type="file"
+                class="form-control"
+                name="imagen_2"
+                id="imagen_2"
+              />
+            </label>
+          </p>
+          <p>
+            <label>
+              <input
+                type="checkbox"
+                name="img_2_delete"
+                id="imagen_2_delete"
+                value="1"
+              />
+              Eliminar imagen 2 actual
+            </label>
+            <input
+              type="hidden"
+              name="img_2_original"
+              value="{{novedad.img_2_id}}"
+            />
+          </p>
+        </div>
+        <div class="form-group">
+          <p>
+            <label>Imagen 3
+              <input
+                type="file"
+                class="form-control"
+                name="imagen_3"
+                id="imagen_3"
+              />
+            </label>
+          </p>
+          <p>
+            <label>
+              <input
+                type="checkbox"
+                name="img_3_delete"
+                id="imagen_3_delete"
+                value="1"
+              />
+              Eliminar imagen 3 actual
+            </label>
+            <input
+              type="hidden"
+              name="img_3_original"
+              value="{{novedad.img_3_id}}"
+            />
+          </p>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar modificación</button>
+      </form>
+      {{#if error}}
+        <p class="mensajeError">{{message}}</p>
+      {{/if}}
     </div>
+  </div>
 </div>
