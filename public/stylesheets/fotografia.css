@@ -283,6 +283,7 @@ opacity: 0.7;
 .carousel-novedades{
   height: 450;
 }
+
 /* fin novedades */
 
 /* PREGUNTAS FRECUENTES, TESTIMONIOS Y ASIDE */
@@ -522,4 +523,9 @@ footer{
       grid-template-columns: 100vw;
       grid-template-rows: repeat(5,20vh);
 }
+
+.carousel-novedades{
+  height: 250;
+}
+
 }
