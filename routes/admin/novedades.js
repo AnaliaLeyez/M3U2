@@ -12,7 +12,12 @@ const destroy= util.promisify(cloudinary.uploader.destroy);
 // listar novedades:
 router.get('/', async function(req,res,next){
 
-    var novedades = await novedadesModel.getNovedades();
+    var novedades 
+    if(req.query.q===undefined){
+        novedades = await novedadesModel.getNovedades();
+    } else{
+        novedades= await novedadesModel.buscarNovedades(req.query.q);
+    }
 
     novedades= novedades.map(novedad=>{
         if(novedad.img_principal_id){
@@ -36,7 +41,9 @@ router.get('/', async function(req,res,next){
     res.render('admin/novedades',{
         layout: 'admin/layout',
         usuario: req.session.nombre,
-        novedades
+        novedades,
+        is_search: req.query.q !== undefined,
+        q: req.query.q
     });
 });
 

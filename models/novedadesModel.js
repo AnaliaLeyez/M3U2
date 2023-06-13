@@ -40,4 +40,11 @@ async function modificarNovedadById(obj, id){
     }
 }
 
-module.exports= { getNovedades, deleteNovedadesById, insertNovedades, getNovedadesById, modificarNovedadById }
+async function buscarNovedades(busqueda){
+    var query = "select * from ultimos_trabajos where titulo like ? OR subtitulo like ?";
+    var rows = await pool.query(query, ['%' + busqueda + '%', '%' + busqueda + '%']);
+    return rows;
+}
+
+
+module.exports= { getNovedades, deleteNovedadesById, insertNovedades, getNovedadesById, modificarNovedadById, buscarNovedades }

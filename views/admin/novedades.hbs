@@ -24,6 +24,14 @@
         <i class="fa fa-plus"></i>Nuevo
       </a>
     </div>
+    <div class="col-3">
+      <form class="form-inline my-lg-0" action="/admin/novedades" method="get">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="q" {{#if q}} value="{{q}}" {{/if}}>
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+    </div>
   </div>
 
   <div class="row">
@@ -55,6 +63,13 @@
           {{/each}}
         </tbody>
       </table>
+
+      {{#if is_search}}
+      {{#unless novedades.length}}
+        No se encontraron resultados para "<b>{{q}}</b>"
+      {{/unless}}
+      {{/if}}
+
     </div>
   </div>
 
