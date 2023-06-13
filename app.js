@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var staffRouter = require('./routes/staff'); //busca staff.js
 var bodasRouter = require('./routes/bodas');
 var quinceRouter = require('./routes/quince');
+var paisajesRouter = require('./routes/paisajes');
 var trabajaConNosotrosRouter = require('./routes/trabajaConNosotros');
 var loginRouter = require('./routes/admin/login');
 var adminRouter= require('./routes/admin/novedades');
@@ -58,6 +59,7 @@ app.use('/users', usersRouter);
 app.use('/staff', staffRouter);  //controlador o manejador de ruta
 app.use('/bodas', bodasRouter);
 app.use('/quince', quinceRouter);
+app.use('/paisajes', paisajesRouter);
 app.use('/trabajaConNosotros', trabajaConNosotrosRouter);
 app.use('/admin/login', loginRouter);
 app.use('/admin/novedades', secured, adminRouter);
@@ -72,6 +74,10 @@ app.get('/bodas', function (req,res){
 
 app.get('/quince', function (req,res){
   res.render('quince')
+})
+
+app.get('/paisajes', function (req,res){
+  res.render('paisajes')
 })
 
 app.get('/trabajaConNosotros', function (req,res){
