@@ -37,7 +37,7 @@ h2{
     position: absolute;
     left: 7vw;
     top: 5vh;
-    animation: rotar 50s infinite linear;
+    animation: rotar 20s infinite linear;
     transform-style: preserve-3d;
 }
 
