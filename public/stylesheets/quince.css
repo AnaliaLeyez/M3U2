@@ -4,13 +4,6 @@
     box-sizing: border-box;
 }
 
-body{
-    background-image: url(../image/fondo.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 330vh;
-}
-
 h2{
     text-align: center;
     font-size: 40px;
