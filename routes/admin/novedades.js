@@ -128,12 +128,12 @@ router.get('/modificar/:id', async (req,res,next)=>{
 router.post('/modificar', async(req,res, next) => {
     try{
         let img_principal_id= req.body.img_principal_original;
-        let borrar_img_principal_vieja= false;
         let img_1_id= req.body.img_1_original;
-        let borrar_img_1_vieja= false;
         let img_2_id= req.body.img_2_original;
-        let borrar_img_2_vieja= false;
         let img_3_id= req.body.img_3_original;
+        let borrar_img_principal_vieja= false;
+        let borrar_img_1_vieja= false;
+        let borrar_img_2_vieja= false;
         let borrar_img_3_vieja= false;
 
         if(req.body.img_principal_delete==="1"){
