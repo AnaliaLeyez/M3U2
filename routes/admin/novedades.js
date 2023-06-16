@@ -127,66 +127,78 @@ router.get('/modificar/:id', async (req,res,next)=>{
 // modifica la novedad:
 router.post('/modificar', async(req,res, next) => {
     try{
-        let img_principal_id = req.body.img_principal_original;
-      let img_1_id = req.body.img_1_original;
-      let img_2_id = req.body.img_2_original;
-      let img_3_id = req.body.img_3_original;
- 
-      // Verificar si se debe eliminar o cargar una nueva imagen principal
-      if (req.body.img_principal_delete === "1") {
-        img_principal_id = null;
-        if (req.body.img_principal_original) {
-          await destroy(req.body.img_principal_original);
-        }
-      } else if (req.files && req.files.imagen_principal) {
-        const imagen_principal = req.files.imagen_principal;
-        img_principal_id = (await uploader(imagen_principal.tempFilePath)).public_id;
-        if (req.body.img_principal_original) {
-          await destroy(req.body.img_principal_original);
-        }
+      let img_principal_id= req.body.img_principal_original;
+      let img_1_id= req.body.img_1_original;
+      let img_2_id= req.body.img_2_original;
+      let img_3_id= req.body.img_3_original;
+      let borrar_img_principal_vieja= false;
+      let borrar_img_1_vieja= false;
+      let borrar_img_2_vieja= false;
+      let borrar_img_3_vieja= false;
+
+
+      if(req.body.img_principal_delete==="1"){
+          img_principal_id=null;
+          borrar_img_principal_vieja=true;
+      } else{
+          if(req.files && req.files.imagen_principal){
+              imagen_principal=req.files.imagen_principal;
+              img_principal_id=(await
+                  uploader(imagen_principal.tempFilePath)).public_id;
+                  borrar_img_principal_vieja=true;
+          }
       }
- 
-      // Repetir el proceso para las demás imágenes (img_1, img_2, img_3)
-      if (req.body.img_1_delete === "1") {
-        img_1_id = null;
-        if (req.body.img_1_original) {
-          await destroy(req.body.img_1_original);
-        }
-      } else if (req.files && req.files.imagen_1) {
-        const imagen_1 = req.files.imagen_1;
-        img_1_id = (await uploader(imagen_1.tempFilePath)).public_id;
-        if (req.body.img_1_original) {
-          await destroy(req.body.img_1_original);
-        }
-      }  
+      if(borrar_img_principal_vieja && req.body.img_principal_original){
+          await(destroy(req.body.img_principal_original));
+      }
 
 
-      if (req.body.img_2_delete === "1") {
-        img_2_id = null;
-        if (req.body.img_2_original) {
-          await destroy(req.body.img_2_original);
-        }
-      } else if (req.files && req.files.imagen_2) {
-        const imagen_2 = req.files.imagen_2;
-        img_2_id = (await uploader(imagen_2.tempFilePath)).public_id;
-        if (req.body.img_2_original) {
-          await destroy(req.body.img_2_original);
-        }
-      }  
+      if(req.body.img_1_delete==="1"){
+          img_1_id=null;
+          borrar_img_1_vieja=true;
+      } else{
+          if(req.files && req.files.imagen_1){
+              imagen_1=req.files.imagen_1;
+              img_1_id=(await
+                  uploader(imagen_1.tempFilePath)).public_id;
+                  borrar_img_1_vieja=true;
+          }
+      }
+      if(borrar_img_1_vieja && req.body.img_1_original){
+          await(destroy(req.body.img_1_original));
+      }
 
 
-      if (req.body.img_3_delete === "1") {
-        img_3_id = null;
-        if (req.body.img_3_original) {
-          await destroy(req.body.img_3_original);
-        }
-      } else if (req.files && req.files.imagen_3) {
-        const imagen_3 = req.files.imagen_3;
-        img_3_id = (await uploader(imagen_3.tempFilePath)).public_id;
-        if (req.body.img_3_original) {
-          await destroy(req.body.img_3_original);
-        }
-      } 
+      if(req.body.img_2_delete==="1"){
+          img_2_id=null;
+          borrar_img_2_vieja=true;
+      } else{
+          if(req.files && req.files.imagen_2){
+              imagen_2=req.files.imagen_2;
+              img_2_id=(await
+                  uploader(imagen_2.tempFilePath)).public_id;
+                  borrar_img_2_vieja=true;
+          }
+      }
+      if(borrar_img_2_vieja && req.body.img_2_original){
+          await(destroy(req.body.img_2_original));
+      }
+
+
+      if(req.body.img_3_delete==="1"){
+          img_3_id=null;
+          borrar_img_3_vieja=true;
+      } else{
+          if(req.files && req.files.imagen_3){
+              imagen_3=req.files.imagen_3;
+              img_3_id=(await
+                  uploader(imagen_3.tempFilePath)).public_id;
+                  borrar_img_3_vieja=true;
+          }
+      }
+      if(borrar_img_3_vieja && req.body.img_3_original){
+          await(destroy(req.body.img_3_original));
+      }
 
         let obj= {
             titulo: req.body.titulo,
