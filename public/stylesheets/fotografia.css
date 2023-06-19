@@ -479,12 +479,6 @@ footer{
   scroll-behavior: smooth;
 }
 
-@media screen and (max-width: 768px) {
-  .navbar-brand {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 725px) {
   .hero-principal{
     height: 30vh;
@@ -495,6 +489,10 @@ footer{
 }
 
 @media screen and (max-width:768px){
+    .navbar-brand {
+    display: none;
+  }
+  
   .contenedor-portfolio{
     display: grid;
     grid-template-areas: 
@@ -524,6 +522,11 @@ footer{
 
 .carousel-novedades{
   height: 250;
+}
+
+.lista-novedades{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 }
