@@ -107,3 +107,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+app.listen(4000, ()=>console.log('servidor corriendo en http://localhost:4000'));
